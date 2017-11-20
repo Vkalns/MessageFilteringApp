@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MessageFilteringApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Euston Leisure Message Filtering Service" Height="350" Width="525">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
         
+        
+        <!--Collummn 1-->
+        <DockPanel Grid.Column ="0" Margin="5 5" Background="AntiqueWhite">
+            <StackPanel>
+                <Button Content="{Binding AddMessagesButtonContent}" Command="{Binding AddMessagesButtonCommand}" Margin="2 2 2 10"/>
+                <Button Content="{Binding ViewMessagesButtonContent}" Command="{Binding ViewMessagesButtonCommand}" Margin="2 2 2 10"/>
+            </StackPanel>
+        </DockPanel>
+        
+        <!--Collumn 2-->
+        <ContentControl Content ="{Binding ContentControlBinding}" Grid.Column="1" Margin="5 5"/>
+        
+
     </Grid>
 </Window>
