@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using MessageFilteringApp.Commands;
+using MessageFilteringApp.Models;
 using MessageFilteringApp.Views;
+using MessageFilteringApp.Database;
 
 namespace MessageFilteringApp.ViewModels
 {
@@ -45,7 +47,29 @@ namespace MessageFilteringApp.ViewModels
         #region Private Click Helpers
         private void AddButtonClick()
         {
+            if (string.IsNullOrWhiteSpace(MessageHeaderTextBox) || 
+                string.IsNullOrWhiteSpace(MessageBodyTextBox))
+            {
+                MessageBox.Show("Please enter all values");
+                return;
+            }
 
+            Message message = new Message()
+            {
+                Header = MessageHeaderTextBox,
+                Body = MessageBodyTextBox
+            };
+
+            SaveToFile save = new SaveToFile();
+            if (!save.ToJson(message))
+            {
+                MessageBox.Show("Error while saving");
+            }
+            else
+            {
+                MessageBox.Show("Message saved in file");
+                save = null;
+            }
         }
         #endregion
 
