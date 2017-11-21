@@ -68,6 +68,7 @@
     <Compile Include="ViewModels\AddMessagesViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\ViewMessagesViewModel.cs" />
     <Compile Include="Views\AddMessagesView.xaml.cs">
       <DependentUpon>AddMessagesView.xaml</DependentUpon>
     </Compile>

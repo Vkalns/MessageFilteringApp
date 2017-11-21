@@ -23,6 +23,7 @@ namespace MessageFilteringApp.Views
         public ViewMessagesView()
         {
             InitializeComponent();
+            this.DataContext = new ViewMessagesViewModel();
         }
     }
 }

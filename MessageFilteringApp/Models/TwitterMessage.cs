@@ -10,15 +10,16 @@ namespace MessageFilteringApp.Models
 {
     class TwitterMessage : Message
     {
-        public string Sender;//sender
+        public string author;//sender
         public List<string> hashtags;//list of all the mentions
-        public List<Abbreviation> abbreviations;//List of abbreviations
+        //public List<Abbreviation> abbreviations;//List of abbreviations
 
         public TwitterMessage(string header, string body)
         {
             this.Header = header;
             this.Body = body;
-            List<string> hashTags = FindHashTag(body);            
+            hashtags = FindHashTag(body);
+            author = FindAuthor(body);
             
         }
 
@@ -31,6 +32,15 @@ namespace MessageFilteringApp.Models
                 hashtags.Add(match.Value);
             }
             return hashtags;
+        }
+
+        public string FindAuthor(string source)
+        {
+            string author = "";
+            Regex regex = new Regex(@"\B@[a-z0-9_-]+");
+            Match match = regex.Match(source);
+            author = match.Value;
+            return author;
         }
     }
 }

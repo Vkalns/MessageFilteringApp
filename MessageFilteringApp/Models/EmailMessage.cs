@@ -34,7 +34,7 @@ namespace MessageFilteringApp.Models
         public List<string> FindURLs(string source)
         {
             
-            Regex regex = new Regex(@"(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])");
+            Regex regex = new Regex(@"((http|ftp|https):\/\/)?[\w-]+(\.[\w-]+)+([\w.,?^=%&:/+#-]*[\w?^=%&/+#-])");
             List<string> urls = new List<string>();
             
             foreach (Match match in regex.Matches(source))
