@@ -6,3 +6,7 @@
   "Header": "112345666",
   "Body": "this might be tweet"
 }
+{
+  "Header": "1234567",
+  "Body": "sdsadasd\r\nasdasdasd\r\nfdsfasd"
+}

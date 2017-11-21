@@ -58,8 +58,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Database\LoadAbbreviations.cs" />
     <Compile Include="Database\SaveToFile.cs" />
+    <Compile Include="Models\Abbreviations .cs" />
+    <Compile Include="Models\EmailMessage.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\TextMessage.cs" />
+    <Compile Include="Models\TwitterMessage.cs" />
     <Compile Include="ViewModels\AddMessagesViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

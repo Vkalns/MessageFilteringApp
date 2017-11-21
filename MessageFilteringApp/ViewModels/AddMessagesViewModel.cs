@@ -70,6 +70,8 @@ namespace MessageFilteringApp.ViewModels
                 MessageBox.Show("Message saved in file");
                 save = null;
             }
+            LoadAbbreviations loadAbb = new LoadAbbreviations();
+            loadAbb.FromCsv();
         }
         #endregion
 
