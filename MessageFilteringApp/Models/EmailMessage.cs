@@ -16,6 +16,7 @@ namespace MessageFilteringApp.Models
         {
             this.Header = header;
             this.Body = body;
+            sender = FindSender(body);
         }
 
         public string FindSender(string source)
@@ -30,17 +31,19 @@ namespace MessageFilteringApp.Models
             return email;
         }
 
-        public string FindURL(string source)
+        public List<string> FindURLs(string source)
         {
-            string url = "";
+            
             Regex regex = new Regex(@"(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])");
-            MatchCollection  match = regex.Matches(source);
-    
-            if (match.Success)
+            List<string> urls = new List<string>();
+            
+            foreach (Match match in regex.Matches(source))
             {
-                url = match.Value;
+                urls.Add(match.Value);
             }
-            return url;
+            return urls;
+
+
         }
     }
 }

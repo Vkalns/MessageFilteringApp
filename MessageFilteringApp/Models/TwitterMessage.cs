@@ -18,21 +18,19 @@ namespace MessageFilteringApp.Models
         {
             this.Header = header;
             this.Body = body;
-            List<string> hashTags = new List<string>();
-            hashTags.Add(FindHashTag(body));
+            List<string> hashTags = FindHashTag(body);            
             
         }
 
-        public string FindHashTag(string source)
+        public List<string> FindHashTag(string source)
         {
-            string hashtag = "";
+            List<string> hashtags = new List<string>();
             Regex regex = new Regex(@"(#)(\w*[\w&/+-])");
-            Match match = regex.Match(source);
-            if (match.Success)
+            foreach (Match match in regex.Matches(source))
             {
-                hashtag = match.Value;
+                hashtags.Add(match.Value);
             }
-            return hashtag;
+            return hashtags;
         }
     }
 }
